@@ -19,6 +19,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class TodoListActivity extends BaseActivity implements TodoListMvpView {
     @Inject
@@ -34,12 +35,22 @@ public class TodoListActivity extends BaseActivity implements TodoListMvpView {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.todo_list_activity);
         getActivityComponent().inject(this);
+        ButterKnife.bind(this);
+        mPresenter.onAttach(this);
+        setupRecyclerView();
     }
 
+    private void setupRecyclerView() {
+        mTodoRecyclerView.setLayoutManager(mLayoutManager);
+        mTodoRecyclerView.setAdapter(mTodoListAdapter);
+        mPresenter.onViewInitialized();
+    }
 
 
     @Override
     public void updateTodoList(List<Todo> todos) {
+        mTodoListAdapter.addItems(todos);
     }
 }

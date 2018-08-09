@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -32,6 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/spacing_large"
                 android:layout_marginStart="@dimen/spacing_large"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
                 android:text="@string/placeholder_description_subject"
                 android:textSize="@dimen/font_normal" />
 
@@ -40,7 +42,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginTop="@dimen/spacing_large"
                 android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
                 android:layout_marginBottom="@dimen/spacing_normal"
                 android:text="@string/placeholder_date_subject"
                 android:textColor="@android:color/holo_green_light"
