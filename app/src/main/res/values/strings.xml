@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TodoApp</string>
+    <string name="placeholder_todo_subject">Subject</string>
+    <string name="placeholder_description_subject">Description</string>
+    <string name="placeholder_date_subject">Date</string>
 </resources>

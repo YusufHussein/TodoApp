@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        app:cardCornerRadius="@dimen/radius_card_corner">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/todo_subject_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                android:text="@string/placeholder_todo_subject"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/font_large" />
+
+            <TextView
+                android:id="@+id/todo_description_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_large"
+                android:layout_marginStart="@dimen/spacing_large"
+                android:text="@string/placeholder_description_subject"
+                android:textSize="@dimen/font_normal" />
+
+            <TextView
+                android:id="@+id/todo_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:text="@string/placeholder_date_subject"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="@dimen/font_small" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
