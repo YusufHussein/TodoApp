@@ -5,6 +5,9 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.blink22.android.todoapp.data.firestore.model.Todo;
 import com.blink22.android.todoapp.di.PerActivity;
+import com.blink22.android.todoapp.ui.addtodo.AddTodoMvpPresenter;
+import com.blink22.android.todoapp.ui.addtodo.AddTodoMvpView;
+import com.blink22.android.todoapp.ui.addtodo.AddTodoPresenter;
 import com.blink22.android.todoapp.ui.todolist.TodoListAdapter;
 import com.blink22.android.todoapp.ui.todolist.TodoListMvpPresenter;
 import com.blink22.android.todoapp.ui.todolist.TodoListMvpView;
@@ -32,6 +35,11 @@ public class ActivityModule {
     @Provides
     TodoListMvpPresenter<TodoListMvpView> provideTodoMvpPresenter(
             TodoListPresenter presenter) {
+        return presenter;
+    }
+    @Provides
+    AddTodoMvpPresenter<AddTodoMvpView> provideAddTodoPresenter(
+            AddTodoPresenter presenter) {
         return presenter;
     }
 

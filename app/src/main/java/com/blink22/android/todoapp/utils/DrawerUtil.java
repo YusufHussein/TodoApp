@@ -3,8 +3,10 @@ package com.blink22.android.todoapp.utils;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.blink22.android.todoapp.R;
+import com.blink22.android.todoapp.ui.addtodo.AddTodoActivity;
 import com.blink22.android.todoapp.ui.todolist.TodoListActivity;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -28,6 +30,12 @@ public class DrawerUtil {
                 .withOnDrawerItemClickListener((view, position, drawerItem) -> {
                     if (drawerItem.getIdentifier() == NavigationItemEnum.TODO_LIST.getId() && !(activity instanceof TodoListActivity)) {
                         Intent intent = TodoListActivity.newIntent(activity);
+                        Log.e("TODO LIST", "Todo List pressed");
+                        activity.startActivity(intent);
+                    }
+                    if (drawerItem.getIdentifier() == NavigationItemEnum.ADD_TODO.getId() && !(activity instanceof AddTodoActivity)) {
+                        Intent intent = AddTodoActivity.newIntent(activity);
+                        Log.e("ADD TODO", "Add todo pressed");
                         activity.startActivity(intent);
                     }
                     return false;
