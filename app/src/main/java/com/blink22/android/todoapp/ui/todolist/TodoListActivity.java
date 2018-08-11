@@ -2,16 +2,12 @@ package com.blink22.android.todoapp.ui.todolist;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.blink22.android.todoapp.R;
-import com.blink22.android.todoapp.TodoApp;
 import com.blink22.android.todoapp.data.firestore.model.Todo;
 import com.blink22.android.todoapp.di.component.ActivityComponent;
-import com.blink22.android.todoapp.di.component.DaggerActivityComponent;
-import com.blink22.android.todoapp.di.modules.ActivityModule;
 import com.blink22.android.todoapp.ui.base.BaseActivity;
 
 import java.util.List;
@@ -40,6 +36,12 @@ public class TodoListActivity extends BaseActivity implements TodoListMvpView {
         ButterKnife.bind(this);
         mPresenter.onAttach(this);
         setupRecyclerView();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.onDetach();
+        super.onDestroy();
     }
 
     private void setupRecyclerView() {
