@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TodoApp</string>
+    <string name="placeholder_todo_subject">Subject</string>
+    <string name="placeholder_description_subject">Description</string>
+    <string name="placeholder_date_subject">Date</string>
+    <string name="item_title_todo_list">Todo List</string>
+    <string name="item_title_add_todo">Add Todo</string>
+    <string name="button_label_add_todo">Add Todo</string>
+    <string name="button_label_todo_date">Set Date</string>
+    <string name="error_message_todo_subject">You have to enter a subject</string>
+    <string name="error_message_todo_date">You have to enter a date</string>
 </resources>
