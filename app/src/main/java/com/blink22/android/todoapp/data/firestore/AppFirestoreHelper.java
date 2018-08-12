@@ -37,7 +37,7 @@ public class AppFirestoreHelper implements FirestoreHelper {
         mListenerRegistration = mTodoRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
-                if (queryDocumentSnapshots.size() != 0) {
+                if (queryDocumentSnapshots != null) {
                     subject.onNext(queryDocumentSnapshots.toObjects(Todo.class));
                 } else if (e != null) {
                     Log.e(TAG, "SnapShot Error", e);
@@ -45,5 +45,10 @@ public class AppFirestoreHelper implements FirestoreHelper {
             }
         });
         return subject;
+    }
+
+    @Override
+    public void addTodoItem(Todo todo) {
+        mTodoRef.add(todo);
     }
 }

@@ -16,16 +16,18 @@ public class DrawerUtil {
     public static void setDrawer(final Activity activity, Toolbar toolbar) {
         PrimaryDrawerItem drawerItemTodoList = new PrimaryDrawerItem()
                 .withIdentifier(NavigationItemEnum.TODO_LIST.getId())
+                .withSelectable(false)
                 .withName(NavigationItemEnum.TODO_LIST.getLabelResourceId());
         PrimaryDrawerItem drawerItemAddTodo = new PrimaryDrawerItem()
                 .withIdentifier(NavigationItemEnum.ADD_TODO.getId())
+                .withSelectable(false)
                 .withName(NavigationItemEnum.ADD_TODO.getLabelResourceId());
         new DrawerBuilder()
                 .withActivity(activity)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggle(true)
                 .withCloseOnClick(true)
-                .withSelectedItem(NavigationItemEnum.TODO_LIST.getId())
+                .withSelectedItem(-1)
                 .addDrawerItems(drawerItemTodoList, drawerItemAddTodo)
                 .withOnDrawerItemClickListener((view, position, drawerItem) -> {
                     if (drawerItem.getIdentifier() == NavigationItemEnum.TODO_LIST.getId() && !(activity instanceof TodoListActivity)) {

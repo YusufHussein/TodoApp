@@ -13,4 +13,32 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <EditText
+        android:id="@+id/todo_subject_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"/>
+
+    <EditText
+        android:id="@+id/todo_description_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"/>
+    <Button
+        android:id="@+id/todo_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button_label_todo_date"
+        android:layout_marginTop="@dimen/spacing_normal"/>
+    <Button
+        android:id="@+id/add_todo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button_label_add_todo"
+        android:layout_marginTop="@dimen/spacing_normal"/>
 </LinearLayout>

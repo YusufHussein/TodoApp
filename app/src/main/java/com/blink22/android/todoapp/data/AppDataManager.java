@@ -21,4 +21,9 @@ public class AppDataManager implements DataManager {
     public Observable<List<Todo>> getAllTodos() {
         return mFirestoreHelper.getAllTodos();
     }
+
+    @Override
+    public void addTodoItem(Todo todo) {
+        mFirestoreHelper.addTodoItem(todo);
+    }
 }

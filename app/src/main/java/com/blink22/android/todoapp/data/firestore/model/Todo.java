@@ -1,19 +1,20 @@
 package com.blink22.android.todoapp.data.firestore.model;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Todo {
-    private Long mId;
+    private UUID mId;
     private String mSubject;
     private String mDescription;
     private Date mDate;
 
-    public Long getId() {
-        return mId;
+    public Todo() {
+        mId = UUID.randomUUID();
     }
 
-    public void setId(Long id) {
-        mId = id;
+    public UUID getId() {
+        return mId;
     }
 
     public String getSubject() {

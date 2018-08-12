@@ -5,4 +5,6 @@
     <string name="placeholder_date_subject">Date</string>
     <string name="item_title_todo_list">Todo List</string>
     <string name="item_title_add_todo">Add Todo</string>
+    <string name="button_label_add_todo">Add Todo</string>
+    <string name="button_label_todo_date">Set Date</string>
 </resources>

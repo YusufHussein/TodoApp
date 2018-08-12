@@ -1,9 +1,15 @@
 package com.blink22.android.todoapp.ui.addtodo;
 
-import com.blink22.android.todoapp.data.firestore.model.Todo;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
-import java.util.List;
+import java.util.Date;
 
 public interface AddTodoMvpView {
-    void showDraftTodo(Todo todo);
+    void setSubject(String subject);
+
+    void setDescription(String description);
+
+    void setDate(Date date);
+
+    void goToTodoList();
 }

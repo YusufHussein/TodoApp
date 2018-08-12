@@ -8,4 +8,6 @@ import io.reactivex.Observable;
 
 public interface FirestoreHelper {
     Observable<List<Todo>> getAllTodos();
+
+    void addTodoItem(Todo todo);
 }
