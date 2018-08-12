@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -57,6 +58,8 @@ public class AddTodoActivity extends BaseActivity implements AddTodoMvpView, Dat
 
     @Override
     protected void onDestroy() {
+        mPresenter.setTodoSubject(mSubjectEditText.getText().toString());
+        mPresenter.setTodoDescription(mDescriptionEditText.getText().toString());
         mPresenter.onDetach();
         super.onDestroy();
     }

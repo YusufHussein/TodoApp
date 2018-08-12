@@ -3,6 +3,7 @@ package com.blink22.android.todoapp.ui.addtodo;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.blink22.android.todoapp.R;
 import com.blink22.android.todoapp.data.DataManager;
 import com.blink22.android.todoapp.data.firestore.model.Todo;
 
@@ -22,22 +23,23 @@ public class AddTodoPresenter implements AddTodoMvpPresenter<AddTodoMvpView> {
     public AddTodoPresenter(DataManager dataManager, CompositeDisposable compositeDisposable) {
         mDataManager = dataManager;
         mCompositeDisposable = compositeDisposable;
-        mTodo = new Todo();
     }
 
     @Override
     public void onAttach(AddTodoMvpView view) {
         mAddTodoView = view;
+        mTodo = mDataManager.getTodoDraft();
+        refreshTodo();
     }
 
     @Override
     public void onDetach() {
         mCompositeDisposable.dispose();
+        mDataManager.saveTodoDraft(mTodo);
     }
 
     @Override
     public void onViewInitialized() {
-
     }
 
     @Override
@@ -61,20 +63,20 @@ public class AddTodoPresenter implements AddTodoMvpPresenter<AddTodoMvpView> {
     @Override
     public void addTodoItem() {
         if (mTodo.getSubject() == null || mTodo.getSubject().length() == 0) {
-            Toast.makeText((Context) mAddTodoView, "You have to enter a subject", Toast.LENGTH_SHORT).show();
+            Toast.makeText((Context) mAddTodoView, R.string.error_message_todo_subject, Toast.LENGTH_SHORT).show();
             return;
         }
         if (mTodo.getDate() == null) {
-            Toast.makeText((Context) mAddTodoView, "You have to enter a date", Toast.LENGTH_SHORT).show();
+            Toast.makeText((Context) mAddTodoView, R.string.error_message_todo_date, Toast.LENGTH_SHORT).show();
             return;
         }
         mDataManager.addTodoItem(mTodo);
-        clearTodo();
+        mTodo = new Todo();
+        refreshTodo();
         mAddTodoView.goToTodoList();
     }
 
-    private void clearTodo() {
-        mTodo = new Todo();
+    private void refreshTodo() {
         setTodoSubject(mTodo.getSubject());
         setTodoDescription(mTodo.getDescription());
         setTodoDate(mTodo.getDate());
